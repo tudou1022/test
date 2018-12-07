@@ -1,0 +1,25 @@
+server:
+  #配置服务器的端口号
+  port: 8000
+
+spring:
+  #jpa配置  ======maven ======= spring-boot-starter-data-jpa
+  jpa:
+    #日志中显示sql语句
+    show-sql: true
+    #hibernate 配置属性 其主要作用是：自动创建、更新、验证数据库表结构。该参数的几种配置如下
+    #         create：每次加载hibernate时都会删除上一次生成的表，然后根据你的model 类在重新生成新表，哪怕两次没有任何变化，这就是数据库表丢失的一个重要原因
+    #         create-drop: 每次加载hibernate时根据model 类生成表，但是 sessionFactory 已关闭，表就会自动删除
+    #         update：最常用的属性，第一次加载hibernate时根据model类自动创建起表的结构（前提是建好数据库），以后加载hibernate时根据model类自动更新表结构，
+    #即使表结构改变了但 表中的行依然存在，不会删除以前的行，要注意的是但部署到服务器后，表结构不会马上建立起来，是要等到下一次运行起来后才会改变
+    #         validate: 每次加载hibernate时，验证创建数据库表结构，只会和数据库中表进行对比，不会创建新表，但是会插入新值。
+#    hibernate:
+#      ddl-auto: none
+#  main:
+#    allow-bean-definition-overriding: true
+  #数据源配置  ======maven ======= mysql-connector-java
+  datasource:
+    url: jdbc:mysql://localhost:3306/boge?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
